@@ -63,4 +63,18 @@ const routeHandler = (req, res) => {
 
 }
 
-module.exports = routeHandler
+// module.exports = routeHandler
+
+//Alternative
+// module.exports = {
+//     handler: routeHandler,
+//     someText: "Some hard code text"
+// }
+
+//Alternative
+// module.exports.handler = routeHandler;
+// module.exports.someText = 'Some hard code text';
+
+//Alternative
+exports.handler = routeHandler;
+exports.someText = 'Some hard code text';
