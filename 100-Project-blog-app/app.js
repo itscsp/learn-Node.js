@@ -1,9 +1,13 @@
 require('dotenv').config();
  
 const express = require('express');
-const expressLayout = require('express-ejs-layouts')
+const expressLayout = require('express-ejs-layouts');
+const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
+const MongoStore = require('connect-mongo')
 
 const connectDB = require('./server/config/db');
+const session = require('express-session');
 
 const app = express()
 const PORT = 5001 || process.env.PORT
@@ -13,6 +17,19 @@ connectDB();
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
+app.use(cookieParser())
+app.use(methodOverride('_method')); 
+// The method-override middleware in a Node.js project is used to enable HTTP methods such as PUT and DELETE in situations where the client (e.g., HTML forms) does not support them directly. HTML forms only support GETandPOSTmethods, making it difficult to use RESTful methods likePUTandDELETE` without additional workarounds.
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI
+    }),
+    //cookie: { maxAge: new Date ( Date.now() + (3600000) ) } 
+}))
 
 app.use(express.static('public'));
 
