@@ -8,11 +8,7 @@ const routeHandler = (req, res) => {
         res.write('<html>');
         res.write('<head><title>My NodeJS Assignment</title></head>');
         res.write('<body>');
-<<<<<<< HEAD
-        res.write('<h1>My NodeJS Assignment Part 1 </h1>')
-=======
         res.write('<h1>My NodeJS Assignment Part 1</h1>')
->>>>>>> b5cf2ca (01-Basic Assingment)
         res.write('<a href="/users">Users List</a>')
         res.write('<hr>')
         res.write('<h1>My NodeJS Assignment Part 2</h1>')
