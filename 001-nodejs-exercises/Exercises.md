@@ -23,6 +23,12 @@
 
 - Hint *
     - Install `npm install dotenv` to read .env data   
+        PORT=5000 
+
+        DB_HOST = 'http://localhost:3000' 
+        
+        DB_USER = 'abcd
+    `
 
 ### 5. Simple API Request with Axios
 - Use Axios to fetch data from an API (e.g., JSONPlaceholder).
