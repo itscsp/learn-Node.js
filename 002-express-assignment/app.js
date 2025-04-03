@@ -11,8 +11,8 @@ const app = express();
 
 const homeRoutes = require('./routes/route')
 
-//Create middleware to server traffic
 
+//Create middleware to server traffic
 app.use(homeRoutes);
 
 app.use('', (req, res, next) => {
