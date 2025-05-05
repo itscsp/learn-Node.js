@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('6815ad984d0936aa6207c59a')
+  User.findById('68189c626084cc308c36accc')
     .then(user => {
-      req.user = user
+      req.user = user;
       next();
     })
     .catch(err => console.log(err));
@@ -38,18 +38,17 @@ mongoose
   )
   .then(result => {
     User.findOne().then(user => {
-      if(!user) {
-
+      if (!user) {
         const user = new User({
-          name: 'Chethan',
-          email: 'chethan@gmail.com',
+          name: 'Max',
+          email: 'max@test.com',
           cart: {
             items: []
           }
-        })
-        user.save() 
+        });
+        user.save();
       }
-    })
+    });
     app.listen(3000);
   })
   .catch(err => {
